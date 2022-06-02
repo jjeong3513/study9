@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+           scroll-behavior: smooth; /*스크롤이 될 때 부드럽게 해주고 싶으면 이걸 설정해줘야함.(대상에 지정해줘도 되고 전체에 지정해줘도 됨)/ css 말고 js스크립트에서도 할 수 있음. */
+            margin: 0;padding:0;
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            background-color: lightsteelblue;
+            width: 250px;
+
+        }
+
+        .item {
+            background-color: lightgoldenrodyellow;
+            border:5px solid green;
+            width: 250px;
+            height: 250px;
+            
+        }
+
+        .btns {
+            position: sticky;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btns">
+        <input type="button" value="아래로50" class="scrollBy" data-direction="bottom50">
+        <input type="button" value="위로50" class="scrollBy" data-direction="top50">
+        <input type="button" value="750으로" class="scrollTo" data-direction="750">
+        <input type="button" value="맨위" data-direction="top">
+        <input type="button" value="맨아래" data-direction="bottom">
+    </div>
+    <div class="items">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item">750</div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        const btns = document.querySelector('.btns');
+        const body = document.querySelector('body');
+
+        const scrollAni = (e)=>{
+            if(e.target.dataset.direction === 'bottom50'){
+            window.scrollBy(0,50);
+            } else if(e.target.dataset.direction === 'top50'){
+            window.scrollBy(0,-50);
+             } else if(e.target.dataset.direction === '750'){
+            window.scrollTo(0,750);
+             } else if(e.target.dataset.direction === 'top'){
+            window.scrollTo(0,0);
+             } else if(e.target.dataset.direction === 'bottom'){
+            window.scrollTo(0,body.scrollHeight);
+            }    
+        }
+
+        btns.addEventListener('click', scrollAni)
+
+    </script>
+</body>
+
+</html>

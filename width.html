@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+       @import url(css/reset.css);
+        #outer{width: 400px;height:300px;background: #690;margin: 100px;padding: 50px;border:5px solid red; overflow: scroll;
+        transform: scale(0.5);}
+        
+    </style>
+     <script src='js/width.js' defer></script>
+</head>
+<body>
+    <div id="outer">
+    orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+    Why do we use it?
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+    Why do we use it?
+    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+
+    </div>
+    <script>
+        const winScreen = window.screen.width;
+        const winOuter = window.outerHeight; //전체 브라우저의 높이
+        const winInner = window.innerHeight; // 브라우저 상단 부분을 뺀 높이(body 부분 높이)
+        const outer = document.querySelector('#outer');
+       // const box1 = outer.innerWidth; -> innerWidth는 엘리먼트 요소가 가지고 있는 속성이 아님
+        const box1 = outer.clientHeight; // border를 제외한 padding까지 포함한 넓이를 받아옴
+        const box2 = outer.offsetWidth; // border까지 포함한 넓이를 받아옴
+        const box3 = outer.scrollHeight; // 보여지는 가시적인 부분의 넓이가 아닌 컨텐츠 영역의 크기를 가지고 옴.(스크롤이 있는 경우 보이지 않는 전체 스크롤 부분까지 포함)
+        const box4 = outer.getBoundingClientRect().width; // offset과 같지만, transform 등을 사용시 랜더링된 사이즈를 받기 때문애 offset과 다름. /넓이와 높이, 위치의 속성까지 받아옴. 
+
+        // offset과 getBoundingClientRect() 많이 사용함.
+
+       /* console.log(winScreen)
+        console.log(winOuter)
+        console.log(winInner) */
+        console.log(box1) 
+        console.log(box2) 
+        console.log(box3) 
+        console.log(box4) 
+   </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

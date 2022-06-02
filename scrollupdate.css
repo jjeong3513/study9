@@ -1,0 +1,35 @@
+@import url(reset.css);
+html,body{height: 100%}
+.logo{position: fixed;left:0;top:0;z-index: 1000;margin: 20px;background: url(../img/scroll/logo.png) no-repeat;width: 100px;height: 110px;text-indent: -9999px}
+
+.gnb{position:fixed;z-index: 2000;width: 500px;border-radius: 20px;background: rgba(0,0,0,.85);left: 0;right: 0;margin:30px auto}
+.gnb li{float: left;color:#999;}
+.gnb li a{display: block;width: 100px;height: 50px;line-height: 50px;text-align: center;font-size: 20px;font-weight: bold}
+.gnb li:hover{color:#ddd}
+
+.section{height: 100%;position: relative;overflow: hidden}
+.one{background-color: #764836}
+.two{background-color: #81af13}
+.three{background-color: #4f6200}
+.four{background-color: #bb2c33}
+.five{background-color: #cc9384}
+
+.section img{position: absolute;left:500px;right: 0;bottom:0;margin: 0 auto;opacity: 0}
+
+/*.section img.up{left:0;opacity: 1;transition: all 0.5s}*/
+.section img.up{left:0;opacity: 1;transition: left 0.5s 0.35s , opacity 0.35s 0.15s}
+
+.section img.a01.up{left:-300px}
+.section img.a02.up{left:0}
+.section img.a03.up{left:300px}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        @import url(css/reset.css);
+        #outer{width: 400px;height: 400px;background: #f00;position: relative;margin: 100px auto;}
+        #inner{width: 200px;height: 200px;background: #000;position: absolute;top:150px;left:100px}
+        
+    </style>
+  
+</head>
+<body>
+    <div style='height:1500px'></div> 
+    <div id="outer">
+        <div id="inner"></div>
+    </div> 
+    <script>
+        const inner = document.querySelector('#inner');
+        const outer = document.querySelector('#outer')
+        const posTop = inner.getBoundingClientRect().top; // getBoundingClientRect()를 사용하면 브라우저의 위치 절대값(0,0) 왼쪽 상단을 기준으로 함.
+        const posLeft = inner.getBoundingClientRect().left; // right를 뽑으면 왼쪽 끝에서 left를 포함한 값이 right임. bottom을 뽑을 때도 위에서부터 높이를 포함한 값임.
+        // bottom과 right를 구할 때는 구분을 잘 해야함. 
+        const offsetTop = inner.offsetTop; // offset은 자신과 부모요소의 포지션이 무엇인지에 따라 달라짐.(css 포지션 정책대로 top, left 위치 값을 받아온다.)
+        const offsetLeft = inner.offsetLeft;
+
+
+        console.log(posTop)
+        console.log(posLeft)
+        console.log(offsetTop)
+        console.log(offsetLeft)
+
+        console.log(window.pageYOffset);
+        console.log(window.scrollY);
+
+        console.log(window.scrollY + posTop); // 이렇게 하면 inner의 절대값이 나옴. 상위는 scrollY, 하위의 값은 posTop으로 받아오는 것임.
+
+        //window.scrollY + element.getBoundingClientRect().top;
+        //window.pageYOFFset + element.getBoundingClientRect().top;
+        // 해당 앨리먼트의 절대 좌표 구하기
+
+        function getPosTop(ele) {
+            return window.scrollY + ele.getBoundingClientRect().top;
+        }
+
+        const posCalc1 = getPosTop(inner)
+        const posCalc2 = getPosTop(outer)
+        
+        console.log(posCalc1)
+        console.log(posCalc2)
+    </script>
+</body>
+</html>
+
+
+

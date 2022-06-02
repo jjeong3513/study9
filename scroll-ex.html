@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+  <style>
+        @import url(css/reset.css);
+        html,body{height: 100%;}
+        .logo{position: fixed;top:0;margin: auto;left:0;margin: 30px; z-index: 1000;background: url(img/scroll/logo.png) no-repeat;width: 100px;height: 110px;text-indent: -9999px}
+        .gnb{position: fixed;top:0;left:50%;transform: translateX(-50%);z-index: 1000}
+        .gnb li{float: left}
+        .gnb li a{display: block;height: 50px;line-height: 50px;color:#fff;font-size: 20px;text-align: center;padding: 0 20px;}
+
+        .gnb li a.on{background: rgba(255,255,255,0.85);color:#333;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;}
+
+        .section{height: 100%;position: relative;overflow: hidden}
+        .section img{position: absolute;top:50%;left:50%;transform: translateX(-50%) translateY(-50%)}
+        .section img.a01{transform: translateX(-100%) translateY(-50%)}
+        .section img.a03{transform: translateX(0%) translateY(-50%)}
+    
+        .one{background-color: #09f}
+        .two{background-color: #81af13}
+        .three{background-color: #f46200}
+        .four{background-color: #bb2c33}
+        .five{background-color: #ff9793}
+
+    </style>
+
+</head>
+<body>
+  <h1 class="logo">toy</h1>
+  <ul class="gnb">
+	  <li><a href="#">ONE</a></li>
+	  <li><a href="#">TWO</a></li>
+	  <li><a href="#">THREE</a></li>
+	  <li><a href="#">FOUR</a></li>
+	  <li><a href="#">FIVE</a></li>
+  </ul>
+  <div class="section one">
+	<img src="img/scroll/toy01.png">
+  </div>
+   <div class="section two">
+	<img src="img/scroll/toy06.png" class="a01">
+	<img src="img/scroll/toy06.png" class="a02">
+	<img src="img/scroll/toy06.png" class="a03">
+  </div>
+   <div class="section three">
+	<img src="img/scroll/toy03.png">
+  </div>
+   <div class="section four">
+	<img src="img/scroll/toy04.png">
+  </div>
+   <div class="section five">
+	<img src="img/scroll/toy05.png">
+  </div>
+</body>
+</html>
+
+
+
+

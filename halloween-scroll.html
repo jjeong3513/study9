@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="css/halloween.css" rel="stylesheet" type="text/css">
+    <style>
+        html{scroll-behavior: smooth;}
+        .gnb li a{pointer-events: none;}
+    </style>
+    
+ 
+   
+</head>
+<body>
+<div id="wrapper">
+    <div class="section cover">
+        <div class="header">
+            <h1><img src="img/halloween/logo.png" alt=""></h1>
+            <ul class="gnb">
+                <li data-index='0'><a href="#">Happy Halloween</a></li>
+                <li data-index='1'><a href="#">Jack O Lantern</a></li>
+                <li data-index='2'><a href="#">Ghost</a></li>
+                <li data-index='3'><a href="#">Zombie</a></li>
+                <li data-index='4'><a href="#">Devil</a></li>
+            </ul>
+        </div><!--//header-->
+    </div>
+    <!--//cover-->
+    <div class="section jack">
+        <img src="img/halloween/jack.png" alt="">
+        <h2>Jack O Lantern</h2>
+        <p>
+         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <!--//jack-->
+    <div class="section ghost">
+        <img src="img/halloween/ghost.png" alt="">
+        <h2>Ghost</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <!--//ghost-->
+    <div class="section zombie">
+        <img src="img/halloween/zombie.png" alt="">
+        <h2>Zombie</h2>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <!--//zombie-->
+    <div class="section devil">
+        <img src="img/halloween/devil.png" alt="">
+        <h2>Devil</h2>
+        <p>
+         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <!--//devil-->
+
+    <script>
+     const gnb = document.querySelector('.gnb');
+     const gnbli = document.querySelectorAll('.gnb li');
+     const section = document.querySelectorAll('.section');
+     const gnbPos = gnb.getBoundingClientRect().top;
+     console.log(gnbPos);
+
+     //gnb 스크롤시 상단 고정(특정 위치에 오면 fix가 되도록 설정)
+     const gnbFix = () => {  // 참조의 변수를 const로 해줬기 때문에 이 부분을 뒤에 적으면 호이스팅이 되지 않아 에러가 뜸
+        const nowScroll1 = document.documentElement.scrollTop;
+        if(nowScroll1>gnbPos){
+            gnb.classList.add('fix')
+        } else{
+            gnb.classList.remove('fix')
+        }
+    }
+        /*
+        const nowScroll2 = window.pageYOffset;
+        const nowScroll3 = window.scrollY; */
+        //console.log(nowScroll1)
+        //console.log(nowScroll2)
+        //console.log(nowScroll3)
+     window.addEventListener('scroll',gnbFix) //호이스팅때문에  함수 선언 후에 나와야함
+     
+     gnb.addEventListener('click',(e)=>{
+         const selected = e.target;
+         const index = selected.dataset.index;
+         const sectionPos = section[index].getBoundingClientRect().top;
+         console.log(sectionPos)
+         window.scrollBy(0,sectionPos)
+     })
+      
+    
+    </script>
+</div>    
+</body>
+</html>
+

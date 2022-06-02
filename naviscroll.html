@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      @import url(css/reset.css);
+      html,body{height: 100%;scroll-behavior: smooth;}
+      .section{height: 100%;position: relative}
+      .section h1{position: absolute;font-size: 150px;color:#fff;left:50%;top:50%;transform: translateX(-50%) translateY(-50%)}
+      #section1{background: #81c496}
+      #section2{background: #cc6945}
+      #section3{background: #d41257}
+      #section4{background: #053578}
+      
+      #navi{position: absolute;right: 0;width: 160px;background: #fff;z-index: 1000;transition:top 0.35s}
+      #navi li a{display: block;height: 40px;line-height: 40px;text-align: center;padding: 8px 0;border-bottom: 1px solid #ccc;pointer-events: none;}
+      
+      #navi li:nth-child(1).on a{background: #81c496;color:#fff}
+      #navi li:nth-child(2).on a{background: #cc6945;color:#fff}
+      #navi li:nth-child(3).on a{background: #d41257;color:#fff}
+      #navi li:nth-child(4).on a{background: #053578;color:#fff}
+    </style>
+    
+</head>
+<body>
+    <ul id="navi">
+        <li data-index='0'><a href="#">section1</a></li>
+        <li data-index='1'><a href="#">section2</a></li>
+        <li data-index='2'><a href="#">section3</a></li>
+        <li data-index='3'><a href="#">section4</a></li>
+    </ul>  
+    <div class="section" id="section1"><h1>section1</h1></div>
+    <div class="section" id="section2"><h1>section2</h1></div>
+    <div class="section" id="section3"><h1>section3</h1></div>
+    <div class="section" id="section4"><h1>section4</h1></div>
+    <script>
+    //열렸을 때 네비를 상하중앙에 있을 수 있도록 하는 방법
+    const navi = document.querySelector('#navi');
+    const naviList = document.querySelectorAll('#navi li');
+    const section = document.querySelectorAll('.section');
+    const mid = window.innerHeight/2 - navi.offsetHeight/2 ;
+    
+    // navi 초기 top 값
+        navi.style.top = `${mid}px` // 네비가 중앙으로 위치함
+        
+        //스크롤시 네비 위치
+        window.addEventListener('scroll',()=>{
+             const nowScroll = window.scrollY;
+             const targetPos = nowScroll + mid; //mid는 전역변수
+             navi.style.top = `${targetPos}px`;
+        })
+        //클릭시 해당 섹션으로 스크롤
+        navi.addEventListener('click',(e)=>{
+        naviList.forEach((li)=>{
+            li.classList.remove('on')
+        })       
+        e.target.classList.add('on')
+        const index = e.target.dataset.index;
+        const targetPos = section[index].getBoundingClientRect().top;
+        window.scrollBy(0,targetPos)
+        })
+
+    </script>
+</body>
+</html>

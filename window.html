@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*console.log(window) // 이렇게 입력하면 콘솔창에 window로 사용할 수 있는 것들이 쫙 나열됨.
+
+        window.addEventListener('onload') // onload는 window에서만 사용 가능함. 
+        document.addEventListener() */
+
+        window.addEventListener('DOMContentLoaded',()=>{
+            console.log('돔의 컨텐츠가 다 읽어진 후 ')
+        })
+        document.addEventListener('DOMContentLoaded',()=>{
+            console.log('돔의 컨텐츠가 다 읽어진 후 ')
+        }) // 이벤트 버블링때문에 윈도우랑 도큐멘트 다 사용 가능
+        window.addEventListener('load',()=>{
+            console.log('모든 리소스가 다 읽어온 후 ')
+        })
+        window.addEventListener('load',()=>{
+           
+        })
+    </script>
+</body>
+</html>
